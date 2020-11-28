@@ -26,5 +26,24 @@ The Linux operating system that derive from the original AT&T UNIX operating sys
 
 **Ubuntu**
 * Ubuntu is an open source operating system based on Linux.
-https://ubuntu.com/
+https://ubuntu.com/download/desktop
 ![ubuntu](https://assets.ubuntu.com/v1/8dd99b80-ubuntu-logo14.png)
+
+**Linux shell**
+* **Shell:** the shell is a program that takes your commands from the keyboard and gives them to the operating system to perform
+* **Terminal:** a program that run a shell
+* **Directory:** folder, or location of a file
+
+
+### 1. Connect and share
+**What I need to connect to a remote Linux server?**
+* **Windows:** Putty (https://www.putty.org/), Ubuntu based bash shell
+* **Linux/Mac:** ssh (built-in)
+
+**SSH syntax*
+* ssh urer@hostname
+* Example 1: ssh joel@darwin.dei.uc.pt
+* Example 2: ssh maria@193.137.200.184
+
+
+
