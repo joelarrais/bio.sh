@@ -38,12 +38,19 @@ https://ubuntu.com/download/desktop
 ### 1. Connect and share
 **What I need to connect to a remote Linux server?**
 * **Windows:** Putty (https://www.putty.org/), Ubuntu based bash shell
-* **Linux/Mac:** ssh (built-in)
+* **Linux/Mac:** ssh (built-in on terminal)
 
 **SSH syntax*
 * ssh urer@hostname
 * Example 1: ssh joel@darwin.dei.uc.pt
 * Example 2: ssh maria@193.137.200.184
+
+**SCP syntax**
+SCP is used to copy file to and from the server
+* scp file.txt urer@hostname:/some/remote/directory <-- copy local file to remote server
+* scp urer@hostname:file.txt /some/local/directory <-- copy remote file to my computer
+
+
 
 
 
