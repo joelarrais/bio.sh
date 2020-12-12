@@ -159,45 +159,45 @@ if len(sys.argv)>1:
 
 ---
 ### 8. Examples for Bioinformatics:
-1. Simple processing of a tab delimited file
-  a. Get a tab file from Uniprot
-  * `wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
+**1. Simple processing of a tab delimited file**
+  * Get a tab file from Uniprot
+    * `wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
+
+  * Format and general stats
+    * `head -n10 ./data/9606.uniprot.tab`
+    * `tail -n10 ./data/9606.uniprot.tab`
+    * `wc -l ./data/9606.uniprot.tab`
+
+  * Search for a specific patern
+    * `grep "BRCA2" ./data/9606.uniprot.tab`
+    * `grep "ubiquitin" ./data/9606.uniprot.tab`
+
+  * Search on a specific col
+    * `awk -F"\t" '$7>2000' ./data/9606.uniprot.tab`
+    * `awk -F'\t' '$3 == "unreviewed"' ./data/9606.uniprot.tab`
+    * `awk -F'\t' '$3 == "unreviewed"||$7<200' ./data/9606.uniprot.tab`
+
+  * Get all proteins for a specific search
+    * `awk -F"\t" '$7>2000' ./data/9606.uniprot.tab | cut -f1,7 |sort -k2n`
 
 
-  b. Format and general stats
-  * `head -n10 ./data/9606.uniprot.tab`
-  * `tail -n10 ./data/9606.uniprot.tab`
-  * `wc -l ./data/9606.uniprot.tab`
+**2. Search over a FASTA file**
+  * Get human fasta file from Uniprot
+    * `wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
 
-  * c) Search for a specific patern
-`grep "BRCA2" ./data/9606.uniprot.tab`
-`grep "ubiquitin" ./data/9606.uniprot.tab`
+  * Convert fasta file to one sequence per line
+    * `awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta`
 
-  * d) Search on a specific col
-`awk -F"\t" '$7>2000' ./data/9606.uniprot.tab`
-`awk -F'\t' '$3 == "unreviewed"' ./data/9606.uniprot.tab`
-`awk -F'\t' '$3 == "unreviewed"||$7<200' ./data/9606.uniprot.tab`
-
-  * e) Get all proteins for a specific search
-`awk -F"\t" '$7>2000' ./data/9606.uniprot.tab | cut -f1,7 |sort -k2n`
-
-
-2. Search over a FASTA file
-  * a) Get human fasta file from Uniprot
-`wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
-
-  * b) Convert fasta file to one sequence per line
-`awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta`
-
-  * c) Get the ids from a fasta file (or other field)
-`cat ./tmp/9606.uniprot.line.fasta | cut -d '|' -f2 |sort `
+  * Get the ids from a fasta file (or other field)
+    * `cat ./tmp/9606.uniprot.line.fasta | cut -d '|' -f2 |sort `
  
-  * d) Intersect two lists
+  * Intersect two lists
 
-  * e) C2H2 zinc finger motif (assume zinc finger motif to be CXXXCXXXXXXXXXXHXXXH)
-`cat ./tmp/9606.uniprot.line.fasta | grep --color "C..C............H...H"`
+  * C2H2 zinc finger motif (assume zinc finger motif to be CXXXCXXXXXXXXXXHXXXH)
+    * `cat ./tmp/9606.uniprot.line.fasta | grep --color "C..C............H...H"`
 
-  * f) Any regular expression
-`cat ./tmp/9606.uniprot.line.fasta | grep --color "L[AST]Q"`
+  * Any regular expression
+    * `cat ./tmp/9606.uniprot.line.fasta | grep --color "L[AST]Q"`
 
-3. Using VCF files
+**3. Using VCF files**
+TBD
