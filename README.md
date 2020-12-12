@@ -63,13 +63,13 @@ Wget is used to get public files from a server.
 * Example 1: wget https://www.uniprot.org/uniprot/P00750.fasta
 
 ### 3. Basic commands
-* ls &leftarrow; list files from current directory
-* ls /home/reports &leftarrow; list files from a specific directory
-* ls -lhS (optional arguments: http://manpages.ubuntu.com/manpages/trusty/man1/ls.1.html)
-* head file.txt -n3 &leftarrow; print the first 3 lines
-* cp file.txt file1.txt &leftarrow; make a copy of file.txt
-* rm file.txt &leftarrow; delete file.txt
-* mv file1.txt file.txt &leftarrow; rename (change location and name) file1.txt to file.txt
+`ls` &leftarrow; list files from current directory
+`ls /home/reports` &leftarrow; list files from a specific directory
+`ls -lhS` (optional arguments: http://manpages.ubuntu.com/manpages/trusty/man1/ls.1.html)
+`head file.txt -n3` &leftarrow; print the first 3 lines
+`cp file.txt file1.txt` &leftarrow; make a copy of file.txt
+`rm file.txt` &leftarrow; delete file.txt
+`mv file1.txt file.txt` &leftarrow; rename (change location and name) file1.txt to file.txt
 
 * mkdir some_folder &leftarrow; create a folder
 * mkdir some_folder_{0..9} &leftarrow; create multiple folders
@@ -84,17 +84,17 @@ Wget is used to get public files from a server.
 ### 4. On-the-go Python example
 * Create/open file with the nano text editor. 
 
-* nano ./code/example.py
+`nano ./code/example.py`
 ```python
 import sys
 if len(sys.argv)>1:
 	for i in range(int(sys.argv[1])):
 		print(i)
 ```
-* `python3 example.py 10`
+`python3 example.py 10`
 
-* python3 example.py 10 >out.txt
-* python3 example.py 10 >>out.txt
+`python3 example.py 10 >out.txt`
+`python3 example.py 10 >>out.txt`
 
 * python3 example.py 10 | sort -r | head -n3
 
