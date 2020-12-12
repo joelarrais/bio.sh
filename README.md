@@ -11,7 +11,7 @@ Basic intro to Linux and shell script for Bioinformatics
 5. Get into your machine and system
 6. Examples for Bioinformatics
 
-
+---
 ### 1. Unix and the command line
 **Unix history**
 
@@ -25,11 +25,11 @@ The Unix operating system derive from the original AT&T UNIX operating system, d
 ![Linux history](https://external-preview.redd.it/_h7fSIEBHmsQGQX4Xg95bjJHYYK88YyWxAJmfSJtqaw.png?auto=webp&s=ba3038caf7708af7aa66ba82d00f578f4854a5ef)
 
 **Ubuntu**
-* Ubuntu is of (out of many) open source operating system based on Linux.
+* Ubuntu is one (out of many) open source operating system based on Linux.
 https://ubuntu.com/download/desktop
 ![ubuntu](https://assets.ubuntu.com/v1/8dd99b80-ubuntu-logo14.png)
 
-** Linux file system **
+**Linux file system**
 * The Filesystem Hierarchy Standard (FHS) defines the main directories and their contents in Linux operating systems. 
 ![Linux file system](https://i.stack.imgur.com/hN4lt.jpg)
 
@@ -38,16 +38,16 @@ https://ubuntu.com/download/desktop
 * **Terminal:** a program that run a shell
 * **Directory:** folder, or location of a file
 
-
+---
 ### 2. Connect and transfer
 **What I need to connect to a remote Linux server?**
 * **Windows:** Putty (https://www.putty.org/), Ubuntu based bash shell
 * **Linux/Mac:** ssh (built-in on terminal)
 
 **SSH syntax**
-* ssh urer@hostname
-* Example 1: ssh joel@darwin.dei.uc.pt
-* Example 2: ssh maria@193.137.200.184
+* `ssh urer@hostname`
+* Example 1: `ssh joel@darwin.dei.uc.pt`
+* Example 2: `ssh maria@193.137.200.184`
 
 **SCP syntax**
 SCP is used to copy file to and from the server
@@ -62,6 +62,7 @@ Wget is used to get public files from a server.
 * wget example-url
 * Example 1: wget https://www.uniprot.org/uniprot/P00750.fasta
 
+---
 ### 3. Basic commands
 `ls` &leftarrow; list files from current directory
 `ls /home/reports` &leftarrow; list files from a specific directory
@@ -81,6 +82,7 @@ Wget is used to get public files from a server.
 * cd ./some_folder/reports &leftarrow; relative path from current directory
 * cd ../some_folder/reports &leftarrow; relative path from parent directory
 
+---
 ### 4. On-the-go Python example
 * Create/open file with the nano text editor. 
 
@@ -98,13 +100,14 @@ if len(sys.argv)>1:
 
 * python3 example.py 10 | sort -r | head -n3
 
+---
 ### 5. Foreground and background
 * Terminate a process: CTRL-C
 * Suspending a process: CTRL-Z
 * fg &leftarrow; bring it back:
 * sleep 20 & &leftarrow; & means that the command will run on background
 
-
+---
 ### 6. Usefull -generic- commands
 * whoami &leftarrow; Who am I?
 * lsb_release -a &leftarrow; linux distribution and version
@@ -114,7 +117,7 @@ if len(sys.argv)>1:
 * w &leftarrow; who is logged to this computer
 * top &leftarrow; what processes are running
 
-
+---
 ### 7. Advanced commands
 * grep: search for a pattern
 $grep "ATG" file
@@ -142,8 +145,8 @@ $cut -d '|' -f3 file &leftarrow; split line by and get collum number 3
 
 * Using the best of both worlds [(more)](https://opensource.com/article/19/4/bash-vs-python)
 
-
-### Examples for Bioinformatics:
+---
+### 8. Examples for Bioinformatics:
 1. Simple processing of a tab delimited file
 ..* a) Get a tab file from Uniprot
 wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'
