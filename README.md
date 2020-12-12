@@ -51,36 +51,48 @@ https://ubuntu.com/download/desktop
 
 **SCP syntax**
 SCP is used to copy file to and from the server
-* scp file.txt urer@hostname:/some/remote/directory &leftarrow; copy local file to remote server
-* scp urer@hostname:file.txt /some/local/directory &leftarrow; copy remote file to my computer
+* `scp file.txt urer@hostname:/some/remote/directory` &leftarrow; copy local file to remote server
+* `scp urer@hostname:file.txt /some/local/directory` &leftarrow; copy remote file to my computer
 
-* Example 1: scp P00750.fasta joel@darwin.dei.uc.pt:/
-* Example 2: scp maria@193.137.200.184:P00750.fasta ./
+* Example 1: `scp P00750.fasta joel@darwin.dei.uc.pt:/`
+* Example 2: `scp maria@193.137.200.184:P00750.fasta ./`
 
 **Wget syntax**
 Wget is used to get public files from a server.
-* wget example-url
-* Example 1: wget https://www.uniprot.org/uniprot/P00750.fasta
+* `wget example-url`
+* Example 1: wget `https://www.uniprot.org/uniprot/P00750.fasta`
 
 ---
 ### 3. Basic commands
 `ls` &leftarrow; list files from current directory
+
 `ls /home/reports` &leftarrow; list files from a specific directory
+
 `ls -lhS` (optional arguments: http://manpages.ubuntu.com/manpages/trusty/man1/ls.1.html)
+
 `head file.txt -n3` &leftarrow; print the first 3 lines
+
 `cp file.txt file1.txt` &leftarrow; make a copy of file.txt
+
 `rm file.txt` &leftarrow; delete file.txt
+
 `mv file1.txt file.txt` &leftarrow; rename (change location and name) file1.txt to file.txt
 
-* mkdir some_folder &leftarrow; create a folder
-* mkdir some_folder_{0..9} &leftarrow; create multiple folders
+`mkdir some_folder` &leftarrow; create a folder
 
-* cd &leftarrow; go to home directory
-* cd some_folder &leftarrow; change folder
-* cd some_folder/reports &leftarrow; change folder
-* cd \~/some_folder/reports &leftarrow; relative path from home directory
-* cd ./some_folder/reports &leftarrow; relative path from current directory
-* cd ../some_folder/reports &leftarrow; relative path from parent directory
+`mkdir some_folder_{0..9}` &leftarrow; create multiple folders
+
+`cd` &leftarrow; go to home directory
+
+`cd some_folder` &leftarrow; change folder
+
+`cd some_folder/reports` &leftarrow; change folder
+
+`cd \~/some_folder/reports` &leftarrow; relative path from home directory
+
+`cd ./some_folder/reports` &leftarrow; relative path from current directory
+
+`cd ../some_folder/reports` &leftarrow; relative path from parent directory
 
 ---
 ### 4. On-the-go Python example
@@ -98,48 +110,48 @@ if len(sys.argv)>1:
 `python3 example.py 10 >out.txt`
 `python3 example.py 10 >>out.txt`
 
-* python3 example.py 10 | sort -r | head -n3
+`python3 example.py 10 | sort -r | head -n3`
 
 ---
 ### 5. Foreground and background
-* Terminate a process: CTRL-C
-* Suspending a process: CTRL-Z
-* fg &leftarrow; bring it back:
-* sleep 20 & &leftarrow; & means that the command will run on background
+* Terminate a process: `CTRL-C`
+* Suspending a process: `CTRL-Z`
+* `fg` &leftarrow; bring it back:
+* `sleep 20 &` &leftarrow; & means that the command will run on background
 
 ---
 ### 6. Usefull -generic- commands
-* whoami &leftarrow; Who am I?
-* lsb_release -a &leftarrow; linux distribution and version
-* ifconfig &leftarrow; get my IP address
-* df -h &leftarrow; disk space available
-* du -sbh &leftarrow; size of the directory
-* w &leftarrow; who is logged to this computer
-* top &leftarrow; what processes are running
+* `whoami` &leftarrow; Who am I?
+* `lsb_release -a` &leftarrow; linux distribution and version
+* `ifconfig` &leftarrow; get my IP address
+* `df -h` &leftarrow; disk space available
+* `du -sbh` &leftarrow; size of the directory
+* `w` &leftarrow; who is logged to this computer
+* `top` &leftarrow; what processes are running
 
 ---
 ### 7. Advanced commands
-* grep: search for a pattern
-$grep "ATG" file
+* `grep`: search for a pattern
+`grep "ATG" file`
 
-* wc -l: count line, word and byte
-$wc -l file
-$grep "ATG" file | wc -l
+* `wc -l`: count line, word and byte
+`wc -l file`
+`grep "ATG" file | wc -l`
 
-* sort: sort text file
-$sort -r file &leftarrow; sort file by reverse order
+* `sort`: sort text file
+`sort -r file` &leftarrow; sort file by reverse order
 
-* tr: translate, squeeze, and/ delete chars
-$ cat file | tr -d '>|' &leftarrow; delete chars from a text file
+* `tr`: translate, squeeze, and/ delete chars
+`cat file | tr -d '>|'` &leftarrow; delete chars from a text file
 
-* uniq: filter adjacent matching lines
-$uniq -c file
+* `uniq`: filter adjacent matching lines
+`$uniq -c file`
 
-* cut: print selected parts of lines
-$cut -d '|' -f3 file &leftarrow; split line by and get collum number 3
+* `cut`: print selected parts of lines
+`cut -d '|' -f3 file` &leftarrow; split line by and get collum number 3
 
-* sed: stream editor for filtering and processing text
-* awk: pattern scanning and processing language
+* `sed`: stream editor for filtering and processing text
+* `awk`: pattern scanning and processing language
 
 ### Bash vs Python
 
@@ -149,44 +161,44 @@ $cut -d '|' -f3 file &leftarrow; split line by and get collum number 3
 ### 8. Examples for Bioinformatics:
 1. Simple processing of a tab delimited file
 ..* a) Get a tab file from Uniprot
-wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'
+`wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
 
 
 ..* b) Format and general stats
-head -n10 ./data/9606.uniprot.tab
-tail -n10 ./data/9606.uniprot.tab
-wc -l ./data/9606.uniprot.tab
+`head -n10 ./data/9606.uniprot.tab`
+`tail -n10 ./data/9606.uniprot.tab`
+`wc -l ./data/9606.uniprot.tab`
 
 ..* c) Search for a specific patern
-grep "BRCA2" ./data/9606.uniprot.tab
-grep "ubiquitin" ./data/9606.uniprot.tab
+`grep "BRCA2" ./data/9606.uniprot.tab`
+`grep "ubiquitin" ./data/9606.uniprot.tab`
 
 ..* d) Search on a specific col
-awk -F"\t" '$7>2000' ./data/9606.uniprot.tab
-awk -F'\t' '$3 == "unreviewed"' ./data/9606.uniprot.tab
-awk -F'\t' '$3 == "unreviewed"||$7<200' ./data/9606.uniprot.tab
+`awk -F"\t" '$7>2000' ./data/9606.uniprot.tab`
+`awk -F'\t' '$3 == "unreviewed"' ./data/9606.uniprot.tab`
+`awk -F'\t' '$3 == "unreviewed"||$7<200' ./data/9606.uniprot.tab``
 
 ..* e) Get all proteins for a specific search
-awk -F"\t" '$7>2000' ./data/9606.uniprot.tab | cut -f1,7 |sort -k2n
+`awk -F"\t" '$7>2000' ./data/9606.uniprot.tab | cut -f1,7 |sort -k2n`
 
 
 2. Search over a FASTA file
 
 ..* a) Get human fasta file from Uniprot
-wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'
+`wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
 
 ..* b) Convert fasta file to one sequence per line
-awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta
+`awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta`
 
 ..* c) Get the ids from a fasta file (or other field)
-cat ./tmp/9606.uniprot.line.fasta | cut -d '|' -f2 |sort 
+`cat ./tmp/9606.uniprot.line.fasta | cut -d '|' -f2 |sort `
  
 ..* d) Intersect two lists
 
 ..* e) C2H2 zinc finger motif (assume zinc finger motif to be CXXXCXXXXXXXXXXHXXXH)
-cat ./tmp/9606.uniprot.line.fasta | grep --color "C..C............H...H"
+`cat ./tmp/9606.uniprot.line.fasta | grep --color "C..C............H...H"`
 
 ..* f) Any regular expression
-cat ./tmp/9606.uniprot.line.fasta | grep --color "L[AST]Q"
+`cat ./tmp/9606.uniprot.line.fasta | grep --color "L[AST]Q"`
 
 3. Using VCF files
