@@ -85,13 +85,13 @@ Wget is used to get public files from a server.
 * Create/open file with the nano text editor. 
 
 * nano ./code/example.py
-'''python
+```python
 import sys
 if len(sys.argv)>1:
 	for i in range(int(sys.argv[1])):
 		print(i)
-'''
-* python3 example.py 10
+```
+* `python3 example.py 10`
 
 * python3 example.py 10 >out.txt
 * python3 example.py 10 >>out.txt
@@ -145,45 +145,45 @@ $cut -d '|' -f3 file &leftarrow; split line by and get collum number 3
 
 ### Examples for Bioinformatics:
 1. Simple processing of a tab delimited file
-..a) Get a tab file from Uniprot
+..* a) Get a tab file from Uniprot
 wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'
 
 
-..b) Format and general stats
+..* b) Format and general stats
 head -n10 ./data/9606.uniprot.tab
 tail -n10 ./data/9606.uniprot.tab
 wc -l ./data/9606.uniprot.tab
 
-..c) Search for a specific patern
+..* c) Search for a specific patern
 grep "BRCA2" ./data/9606.uniprot.tab
 grep "ubiquitin" ./data/9606.uniprot.tab
 
-..d) Search on a specific col
+..* d) Search on a specific col
 awk -F"\t" '$7>2000' ./data/9606.uniprot.tab
 awk -F'\t' '$3 == "unreviewed"' ./data/9606.uniprot.tab
 awk -F'\t' '$3 == "unreviewed"||$7<200' ./data/9606.uniprot.tab
 
-..e) Get all proteins for a specific search
+..* e) Get all proteins for a specific search
 awk -F"\t" '$7>2000' ./data/9606.uniprot.tab | cut -f1,7 |sort -k2n
 
 
 2. Search over a FASTA file
 
-..a) Get human fasta file from Uniprot
+..* a) Get human fasta file from Uniprot
 wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'
 
-..b) Convert fasta file to one sequence per line
+..* b) Convert fasta file to one sequence per line
 awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta
 
-..c) Get the ids from a fasta file (or other field)
+..* c) Get the ids from a fasta file (or other field)
 cat ./tmp/9606.uniprot.line.fasta | cut -d '|' -f2 |sort 
  
-..d) Intersect two lists
+..* d) Intersect two lists
 
-..e) C2H2 zinc finger motif (assume zinc finger motif to be CXXXCXXXXXXXXXXHXXXH)
+..* e) C2H2 zinc finger motif (assume zinc finger motif to be CXXXCXXXXXXXXXXHXXXH)
 cat ./tmp/9606.uniprot.line.fasta | grep --color "C..C............H...H"
 
-..f) Any regular expression
+..* f) Any regular expression
 cat ./tmp/9606.uniprot.line.fasta | grep --color "L[AST]Q"
 
 3. Using VCF files
