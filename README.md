@@ -88,7 +88,7 @@ Wget is used to get public files from a server.
 
 `cd some_folder/reports` &leftarrow; change folder
 
-`cd \~/some_folder/reports` &leftarrow; relative path from home directory
+`cd ~/some_folder/reports` &leftarrow; relative path from home directory
 
 `cd ./some_folder/reports` &leftarrow; relative path from current directory
 
@@ -98,7 +98,7 @@ Wget is used to get public files from a server.
 ### 4. On-the-go Python example
 * Create/open file with the nano text editor. 
 
-`nano ./code/example.py`
+`nano example.py`
 ```python
 import sys
 if len(sys.argv)>1:
@@ -108,6 +108,7 @@ if len(sys.argv)>1:
 `python3 example.py 10`
 
 `python3 example.py 10 >out.txt`
+
 `python3 example.py 10 >>out.txt`
 
 `python3 example.py 10 | sort -r | head -n3`
