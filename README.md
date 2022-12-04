@@ -162,7 +162,7 @@ if len(sys.argv)>1:
 ### 8. Examples for Bioinformatics:
 **1. Simple processing of a tab delimited file**
   * Get a tab file from Uniprot
-    * `wget -O ./data/9606.uniprot.tab 'https://www.uniprot.org/uniprot/?query=*&format=tab&columns=id,entry%20name,reviewed,protein%20names,genes,organism,length&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
+    * `wget -O ./data/9606.uniprot.tab 'https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Creviewed%2Cid%2Cprotein_name%2Cgene_names%2Corganism_name%2Clength&format=tsv&query=%28%28taxonomy_id%3A9606%29%29'`
 
   * Format and general stats
     * `head -n10 ./data/9606.uniprot.tab`
