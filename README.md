@@ -184,7 +184,7 @@ if len(sys.argv)>1:
 
 **2. Search over a FASTA file**
   * Get human fasta file from Uniprot
-    * `wget -O ./data/9606.uniprot.fasta 'https://www.uniprot.org/uniprot/?query=*&format=fasta&fil=organism:%22Homo%20sapiens%20(Human)%20[9606]%22'`
+    * `wget -O ./data/9606.uniprot.fasta 'https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28%28taxonomy_id%3A9606%29%29'`
 
   * Convert fasta file to one sequence per line
     * `awk '/^>/ {printf("%s%s|",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' <./data/9606.uniprot.fasta >./tmp/9606.uniprot.line.fasta`
