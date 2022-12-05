@@ -70,7 +70,7 @@ Wget is used to get public files from a server.
 
 `ls -lhS` (optional arguments: http://manpages.ubuntu.com/manpages/trusty/man1/ls.1.html)
 
-`head file.txt -n3` &leftarrow; print the first 3 lines
+`head -n3 file.txt` &leftarrow; print the first 3 lines
 
 `cp file.txt file1.txt` &leftarrow; make a copy of file.txt
 
@@ -146,7 +146,7 @@ if len(sys.argv)>1:
   * `cat file | tr -d '>|'` &leftarrow; delete chars from a text file
 
 * `uniq`: filter adjacent matching lines
-  * `$uniq -c file`
+  * `uniq -c file`
 
 * `cut`: print selected parts of lines
   * `cut -d '|' -f3 file` &leftarrow; split line by and get collum number 3
